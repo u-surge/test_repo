@@ -16,6 +16,8 @@ import {
   Text,
   useColorScheme,
   View,
+  Button,
+  Alert,
 } from 'react-native';
 
 import {
@@ -80,6 +82,12 @@ const App: () => Node = () => {
           <Section title="Debug">
             <DebugInstructions />
           </Section>
+          <Button
+        //버튼의 타이틀을 정의하는 속성
+        title="Press Me"
+        //클릭시 어떤 함수를 실행할건지
+        onPress={() => Alert.alert("Simple Button pressed")}
+      />
           <Section title="Learn More">
             Read the docs to discover what to do next:
           </Section>
