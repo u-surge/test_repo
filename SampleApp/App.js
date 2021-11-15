@@ -88,6 +88,12 @@ const App: () => Node = () => {
         //클릭시 어떤 함수를 실행할건지
         onPress={() => Alert.alert("Simple Button pressed")}
       />
+      <Button
+        //버튼의 타이틀을 정의하는 속성
+        title="Push Me"
+        //클릭시 어떤 함수를 실행할건지
+        onPress={() => Alert.alert("PushMe Button pressed")}
+      />
           <Section title="Learn More">
             Read the docs to discover what to do next:
           </Section>
