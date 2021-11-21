@@ -117,23 +117,14 @@ const App: () => Node = () => {
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-
         style={backgroundStyle}>
         <Header />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
+            <LogInSection/>
+            
           <Button
         //버튼의 타이틀을 정의하는 속성
         title="Press Me"
@@ -145,13 +136,7 @@ const App: () => Node = () => {
         title="Push Me"
         //클릭시 어떤 함수를 실행할건지
         onPress={() => Alert.alert("PushMe Button pressed")}
-      />
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
->>>>>>> 17da9ab652b7809e4921b2a41c5e985604782cc9
+      /></View>
       </ScrollView>
     </SafeAreaView >
   );
