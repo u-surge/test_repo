@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-
+apply plugin:'com.google.gms.google-services'// google 로그인 기능.
 import com.android.build.OutputFile
 
 /**
