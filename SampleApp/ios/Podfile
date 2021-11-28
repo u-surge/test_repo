@@ -12,6 +12,8 @@ target 'SampleApp' do
     :hermes_enabled => false
   )
 
+  pod 'RNNaverLogin', :path => '../node_modules/@react-native-seoul/naver-login'
+
   target 'SampleAppTests' do
     inherit! :complete
     # Pods for testing
