@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "215509499827",
+    "project_id": "usurgekjs",
+    "storage_bucket": "usurgekjs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215509499827:android:74f7826b52b8fd28af15c6",
+        "android_client_info": {
+          "package_name": "com.u_surge.kjs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "215509499827-69q6f1p43c4pmhkshoe2dv2c3ugi8av8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.u_surge.kjs",
+            "certificate_hash": "9ab51dd8fb3dc9ada5553e37c9a6b760ec63695d"
+          }
+        },
+        {
+          "client_id": "215509499827-bp0u2flr9upqsb62o562l0ui8kf6dr1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx5iSysrlIQaMNJ_7Z8r_SMc9mMfkslCs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "215509499827-bp0u2flr9upqsb62o562l0ui8kf6dr1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
