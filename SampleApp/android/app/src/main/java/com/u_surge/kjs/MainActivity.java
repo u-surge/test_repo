@@ -1,4 +1,4 @@
-package com.sampleapp;
+package com.u_surge.kjs;
 
 import com.facebook.react.ReactActivity;
 
