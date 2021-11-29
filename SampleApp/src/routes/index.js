@@ -8,14 +8,16 @@ import {
     useColorScheme,
     View,
 } from 'react-native';
-import LoginLayout from './LogIn/LoginLayout';
+import LoginLayout from '../screens/Login';
 
-const Main: () => Node = () => {
+const Routes: () => Node = () => {
     return (
-        <View>
+        <View style={{
+            backgroundColor: '#AAA5FF'
+        }}>
             <Text>Main화면</Text>
             <LoginLayout/>
         </View>
     );
 };
-export default Main;
+export default Routes;

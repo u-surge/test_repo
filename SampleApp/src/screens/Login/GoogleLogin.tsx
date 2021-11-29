@@ -23,15 +23,18 @@ import {
 
 
 const GoogleLogin: () => Node = () => {
-    const user;
+
+    const [userInfo, setUserInfo] = useState();
     const [user_id, setUserId] = useState();
     const [nickName, setNickName] = useState();
     // 로그인 기능.
     const signIn = async () => {
         try {
+            GoogleSignin.configure();
             await GoogleSignin.hasPlayServices();
             const userInfo = await GoogleSignin.signIn();
-            this.setState({ userInfo });
+            setUserInfo(userInfo);
+            Alert.alert("Login 완료!\nuserId : " + userInfo.user.givenName);
         } catch (error) {
             if (error.code === statusCodes.SIGN_IN_CANCELLED) {
                 // user cancelled the login flow
@@ -50,13 +53,13 @@ const GoogleLogin: () => Node = () => {
         const user = currentUser.user;
         setUserId(user.id);
         setNickName(user.name);
-        this.setState({ currentUser });
+        setUserInfo({ currentUser });
     };
 
     const getCurrentUserInfo = async () => {
         try {
             const userInfo = await GoogleSignin.signInSilently();
-            this.setState({ userInfo });
+            setUserInfo({ userInfo });
         } catch (error) {
             if (error.code === statusCodes.SIGN_IN_REQUIRED) {
                 // user has not signed in yet
@@ -70,7 +73,8 @@ const GoogleLogin: () => Node = () => {
     const signOut = async () => {
         try {
             await GoogleSignin.signOut();
-            this.setState({ user: null }); // Remember to remove the user from your app's state as well
+            setUserInfo(null); // Remember to remove the user from your app's state as well
+            Alert.alert("LogOut 완료!");
         } catch (error) {
             console.error(error);
         }
@@ -80,6 +84,7 @@ const GoogleLogin: () => Node = () => {
     const revokeAccess = async () => {
         try {
             await GoogleSignin.revokeAccess();
+            Alert.alert("연결 해제!");
             // Google Account disconnected from your app.
             // Perform clean-up actions, such as deleting data associated with the disconnected account.
         } catch (error) {
@@ -88,9 +93,15 @@ const GoogleLogin: () => Node = () => {
     };
     return (
         <View>
+            <GoogleSigninButton
+                style={{ width: 192, height: 48 }}
+                size={GoogleSigninButton.Size.Wide}
+                color={GoogleSigninButton.Color.Dark}
+                onPress={signIn}
+            />
             <Button title="Google로 로그인하기" onPress={() => {
                 console.log("Google로그인 버튼 클릭!");
-                GoogleSignin.configure();
+                
                 signIn();
             }
             }
@@ -100,8 +111,8 @@ const GoogleLogin: () => Node = () => {
                 signOut();
             }} />
             <Button title="Google 연결 해제" onPress={() => {
-                console.log("Google 로그아웃하기 클릭됨");
-                signOut();
+                console.log("Google 연결 해제");
+                revokeAccess();
             }} />
             <Button title="Google 프로필 정보 받기" onPress={() => {
                 console.log("프로필 정보 받기 클릭됨");
@@ -114,3 +125,20 @@ const GoogleLogin: () => Node = () => {
     );
 };
 export default GoogleLogin;
+
+/*
+UserInfo
+{
+    idToken: string,
+    serverAuthCode: string,
+    scopes: Array<string>, // on iOS this is empty array if no additional scopes are defined
+    user: {
+      email: string,
+      id: string,
+      givenName: string,
+      familyName: string,
+      photo: string, // url
+      name: string // full name
+    }
+  }
+  */
